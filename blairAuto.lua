@@ -61,7 +61,6 @@ local function startGame()
 	game.Lighting.Ambient = Color3.fromRGB(220, 220, 220)
 	game.Lighting.FogEnd = 100000
 	game.Players.LocalPlayer.ChatAllowed.Value = false
-	game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true
 
 	if workspace.Map.Items:FindFirstChild("Ghost Writing Book") then
 		workspace.Map.Items["Ghost Writing Book"].Name = "FinaleBook"
@@ -328,6 +327,8 @@ local function startGame()
 		end
 	end)	
 
+	local hum = game.Players.LocalPlayer.Character:WaitForChild("Humanoid", math.huge)
+	if hum then
 	-- auto pickup and other
 	local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
 	local cameraStarted
@@ -690,6 +691,7 @@ local function startGame()
 			end
 		end
 	end)
+	end
 	end
 end
 
